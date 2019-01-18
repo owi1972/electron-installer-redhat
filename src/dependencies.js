@@ -25,8 +25,9 @@ const dependencyMap = {
  * dependencies (>= 4.13.0).
  */
 function rpmSupportsBooleanDependencies (logger) {
+  // on OSX output=RPM-Version 4.14.2.1
   return spawn('rpmbuild', ['--version'], logger)
-    .then(output => rpmVersionSupportsBooleanDependencies(output.trim().split(' ')[2]))
+    .then(output => rpmVersionSupportsBooleanDependencies(output.trim().split(' ')[1]))
 }
 
 /**
